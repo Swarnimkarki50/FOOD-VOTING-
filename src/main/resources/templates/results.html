@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Results - Food Voting</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Food Voting</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/results">Results</a>
+        <a href="/food/new">Add Food</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2 style="margin-bottom: 1.5rem;">Voting Results</h2>
+
+    <div th:if="${#lists.isEmpty(results)}" class="empty-state">
+        <h2>No votes yet</h2>
+        <p>Go back to the home page and cast your vote!</p>
+        <a href="/" class="btn btn-primary">Back to Home</a>
+    </div>
+
+    <div th:unless="${#lists.isEmpty(results)}" class="results-list">
+        <div class="result-card" th:each="result : ${results}">
+            <div class="info">
+                <h3 th:text="${result.foodItemName}">Food Name</h3>
+                <div class="stars" th:with="full = ${result.avgRating.intValue()}">
+                    <span th:each="i : ${#numbers.sequence(1, 5)}"
+                          th:text="${i <= full} ? '★' : '☆'"
+                          th:style="${i <= full} ? 'color: #fdcb6e;' : 'color: #dfe6e9;'"></span>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="rating" th:text="${result.avgRating}">0.0</div>
+                <div class="count" th:text="'(' + ${result.voteCount} + ' vote' + (${result.voteCount} != 1 ? 's' : '') + ')'">(0 votes)</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="/" class="btn btn-primary">Back to Home</a>
+    </div>
+</div>
+
+<footer>
+    <p>Food Voting App</p>
+</footer>
+</body>
+</html>

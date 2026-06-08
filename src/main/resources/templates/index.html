@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Voting</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Food Voting</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/results">Results</a>
+        <a href="/food/new">Add Food</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div th:if="${#lists.isEmpty(foodItems)}" class="empty-state">
+        <h2>No food items yet</h2>
+        <p>Be the first to add a food item!</p>
+        <a href="/food/new" class="btn btn-primary">Add Food</a>
+    </div>
+
+    <div th:unless="${#lists.isEmpty(foodItems)}" class="food-grid">
+            <div class="food-card" th:each="item : ${foodItems}">
+            <img th:src="${item.imageUrl}" th:alt="${item.name}" th:if="${item.imageUrl}">
+            <div class="content">
+                <h3 th:text="${item.name}">Name</h3>
+                <span class="category" th:text="${item.category}" th:if="${item.category}">Category</span>
+                <p th:text="${item.description}" th:if="${item.description}">Description</p>
+            </div>
+            <form class="vote-form" action="/vote" method="post">
+                <input type="hidden" name="foodItemId" th:value="${item.id}">
+                <input type="text" name="voterName" placeholder="Your name" required>
+                <select name="rating" required>
+                    <option value="">Rate...</option>
+                    <option value="1">1 - Terrible</option>
+                    <option value="2">2 - Poor</option>
+                    <option value="3">3 - Good</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="5">5 - Delicious!</option>
+                </select>
+                <textarea name="comment" placeholder="Leave a comment (optional)"></textarea>
+                <button type="submit" class="btn btn-primary">Vote</button>
+            </form>
+            <form action="/food/{id}/delete" th:action="'/food/' + ${item.id} + '/delete'" method="post" style="padding: 0 1rem 1rem;">
+                <button type="submit" class="btn btn-secondary" style="width: 100%; font-size: 0.8rem;">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>Food Voting App</p>
+</footer>
+</body>
+</html>

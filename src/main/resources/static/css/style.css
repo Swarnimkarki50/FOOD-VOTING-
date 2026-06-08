@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: background 0.2s;
+}
+
+header nav a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.food-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+}
+
+.food-card:hover {
+    transform: translateY(-4px);
+}
+
+.food-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.food-card .content {
+    padding: 1rem;
+}
+
+.food-card h3 {
+    margin-bottom: 0.5rem;
+    color: #2d3436;
+}
+
+.food-card .category {
+    display: inline-block;
+    background: #dfe6e9;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.food-card p {
+    color: #636e72;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.food-card .vote-form {
+    border-top: 1px solid #eee;
+    padding: 1rem;
+}
+
+.food-card .vote-form input,
+.food-card .vote-form select,
+.food-card .vote-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.food-card .vote-form textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: #ee5a24;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #c0392b;
+}
+
+.btn-secondary {
+    background: #636e72;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #2d3436;
+}
+
+.results-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.result-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result-card .info h3 {
+    margin-bottom: 0.3rem;
+}
+
+.result-card .stats {
+    text-align: right;
+}
+
+.result-card .stats .rating {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ee5a24;
+}
+
+.result-card .stats .count {
+    color: #636e72;
+    font-size: 0.9rem;
+}
+
+.stars {
+    color: #fdcb6e;
+    font-size: 1.2rem;
+}
+
+.form-container {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #636e72;
+}
+
+.empty-state h2 {
+    margin-bottom: 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #b2bec3;
+}
