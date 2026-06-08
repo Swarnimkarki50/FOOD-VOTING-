@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    background: linear-gradient(135deg, #00b894, #00a86b);
     color: #fff;
     padding: 1rem 2rem;
     display: flex;
@@ -127,12 +127,12 @@ header nav a:hover {
 }
 
 .btn-primary {
-    background: #ee5a24;
+    background: #00a86b;
     color: #fff;
 }
 
 .btn-primary:hover {
-    background: #c0392b;
+    background: #008554;
 }
 
 .btn-secondary {
@@ -170,7 +170,7 @@ header nav a:hover {
 .result-card .stats .rating {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #ee5a24;
+    color: #00a86b;
 }
 
 .result-card .stats .count {
